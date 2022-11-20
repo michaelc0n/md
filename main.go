@@ -41,6 +41,9 @@ func main() {
 	win.ShowAndRun()
 }
 
+// makeUI creates two widgets, assigns them to the app config, and
+// adds a listener on the edit widget that updates the preview widget
+// with parsed markdown whenever the user types something
 func (app *config) makeUI() (*widget.Entry, *widget.RichText) {
 	edit := widget.NewMultiLineEntry()
 	preview := widget.NewRichTextFromMarkdown("")
@@ -53,9 +56,8 @@ func (app *config) makeUI() (*widget.Entry, *widget.RichText) {
 }
 
 func (app *config) createMenuItems(win fyne.Window) {
-
+	// create three menu items
 	openMenuItem := fyne.NewMenuItem("Open...", app.openFunc(win))
-
 	saveMenuItem := fyne.NewMenuItem("Save", app.saveFunc(win))
 	app.SaveMenuItem = saveMenuItem
 	app.SaveMenuItem.Disabled = true
