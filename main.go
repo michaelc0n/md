@@ -25,6 +25,9 @@ func main() {
 	// create a fyne app
 	app := app.New()
 
+	//
+	app.Settings().SetTheme(&myTheme{})
+
 	// create a window for app
 	win := app.NewWindow("Markdown")
 
